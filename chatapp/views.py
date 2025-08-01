@@ -69,7 +69,9 @@ class MessageListCreateView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        conversation_id = self.kwargs['conversation_id']
+        conversation_id = self.kwargs.get('conversation_id')
+        if not conversation_id:
+            return Message.objects.none()  # Prevents crash in Swagger
         conversation = self.get_conversation(conversation_id)
         return conversation.messages.order_by('timestamp')
 
@@ -99,7 +101,9 @@ class MessageRetrieveDestroyView(generics.RetrieveDestroyAPIView):
     serializer_class = MessageSerializer
 
     def get_queryset(self):
-        conversation_id = self.kwargs['conversation_id']
+        conversation_id = self.kwargs.get('conversation_id')
+        if not conversation_id:
+            return Message.objects.none()
         return Message.objects.filter(conversation__id=conversation_id)
 
     def perform_destroy(self, instance):
