@@ -43,5 +43,6 @@ This project leverages the following technologies:
 | ⚡ Frontend Tooling    | [Vite](https://vitejs.dev/)                                                   | Fast frontend build tool and dev server               |
 | 🌐 Real-time Protocol  | [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) | Bi-directional real-time communication                |
 | 🧰 Message Broker      | [Redis](https://redis.io/)                                                    | In-memory data structure store, used as channel layer |
+| 📚 Docs Generator      | [drf-yasg](https://drf-yasg.readthedocs.io/)                                  | Auto-generate Swagger/OpenAPI docs                    |
 
 ---
