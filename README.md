@@ -26,6 +26,7 @@ and a responsive React frontend powered by Vite to deliver seamless live messagi
 - **Authentication**: Supports token-based authentication for secure communication.
 - **Online and Typing Indicators**: Real-time updates for online users and typing notifications.
 - **Role-based Access**: Ensures users can only access conversations they are part of.
+- **Swagger UI for API Documentation**: Added Swagger UI (via drf-yasg) to automatically generate interactive API documentation
 
 ---
 
