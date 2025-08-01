@@ -17,15 +17,15 @@ and a responsive React frontend powered by Vite to deliver seamless live messagi
 
 ## Key Features
 
-#### Backend:
+### Backend:
 
-- WebSocket Integration: Utilizes Django Channels to support WebSocket connections for real-time messaging.
-- Redis: Acts as the message broker to enable WebSocket functionality and handle asynchronous events.
-- Daphne: A production-ready ASGI server used to serve WebSocket and HTTP traffic.
-- Message Persistence: Messages are stored in a PostgreSQL or SQLite database using Django ORM.
-- Authentication: Supports token-based authentication for secure communication.
-- Online and Typing Indicators: Real-time updates for online users and typing notifications.
-- Role-based Access: Ensures users can only access conversations they are part of.
+- **WebSocket Integration**: Utilizes Django Channels to support WebSocket connections for real-time messaging.
+- **Redis**: Acts as the message broker to enable WebSocket functionality and handle asynchronous events.
+- **Daphne**: A production-ready ASGI server used to serve WebSocket and HTTP traffic.
+- **Message Persistence**: Messages are stored in a PostgreSQL or SQLite database using Django ORM.
+- **Authentication**: Supports token-based authentication for secure communication.
+- **Online and Typing Indicators**: Real-time updates for online users and typing notifications.
+- **Role-based Access**: Ensures users can only access conversations they are part of.
 
 ---
 
