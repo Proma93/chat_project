@@ -42,6 +42,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
         # accept websocket connections
         await self.accept()
 
+        #Notify Others That This User is Online
         user_data = await self.get_user_data(self.user)
         await self.channel_layer.group_send(
             self.room_group_name,
@@ -86,7 +87,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
                 from .serializers import UserListSerializer
                 user_data = UserListSerializer(user).data
 
-                #say message to the group/database
+                #save the message to the database
                 message = await self.save_message(conversation, user, message_content)
                 #broadcast the message to the group
                 await self.channel_layer.group_send(
@@ -156,8 +157,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
 
     async def online_status(self, event):
         await self.send(text_data=json.dumps(event))
-    
-    
+       
     @sync_to_async
     def get_user(self, user_id):
         from django.contrib.auth import get_user_model
