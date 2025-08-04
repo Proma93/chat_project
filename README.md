@@ -8,6 +8,28 @@ and a responsive React frontend powered by Vite to deliver seamless live messagi
 
 ---
 
+## Table of Contents
+
+- [Key Features](#key-features)
+- [Tech Stack](#tech-stack)
+
+---
+
+## Key Features
+
+### Backend:
+
+- **WebSocket Integration**: Utilizes Django Channels to support WebSocket connections for real-time messaging.
+- **Redis**: Acts as the message broker to enable WebSocket functionality and handle asynchronous events.
+- **Daphne**: A production-ready ASGI server used to serve WebSocket and HTTP traffic.
+- **Message Persistence**: Messages are stored in a PostgreSQL or SQLite database using Django ORM.
+- **Authentication**: Supports token-based authentication for secure communication.
+- **Online and Typing Indicators**: Real-time updates for online users and typing notifications.
+- **Role-based Access**: Ensures users can only access conversations they are part of.
+- **Swagger UI for API Documentation**: Added Swagger UI (via drf-yasg) to automatically generate interactive API documentation
+
+---
+
 ## Tech Stack
 This project leverages the following technologies:
 
@@ -21,5 +43,6 @@ This project leverages the following technologies:
 | ⚡ Frontend Tooling    | [Vite](https://vitejs.dev/)                                                   | Fast frontend build tool and dev server               |
 | 🌐 Real-time Protocol  | [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) | Bi-directional real-time communication                |
 | 🧰 Message Broker      | [Redis](https://redis.io/)                                                    | In-memory data structure store, used as channel layer |
+| 📚 Docs Generator      | [drf-yasg](https://drf-yasg.readthedocs.io/)                                  | Auto-generate Swagger/OpenAPI docs                    |
 
 ---
