@@ -132,7 +132,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
             except Exception as e:
                 print(f"Error getting user data: {e}")
 
-    # helper functions
+    # helper functions (events to the client)
     async def chat_message(self, event):
         message = event['message']
         user = event['user']
@@ -158,6 +158,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
     async def online_status(self, event):
         await self.send(text_data=json.dumps(event))
        
+    #helper methods(Database access)
     @sync_to_async
     def get_user(self, user_id):
         from django.contrib.auth import get_user_model
