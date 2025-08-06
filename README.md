@@ -13,6 +13,11 @@ The system supports real-time messaging, online status indicators, typing indica
 - [Key Features](#key-features)
 - [Tech Stack](#tech-stack)
 - [Know About WebSocket](#know-about-websocket)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Key Components](#key-components)
+- [Additional Feature to Explore](#additional-feature-to-explore)
+- [Screenshots](#screenshots)
 
 ---
 
@@ -197,8 +202,33 @@ redis-cli ping  # Should return PONG
 
 ---
 
+## Key Components
 
+### Backend:
 
+- **WebSocket Consumers**: Handles incoming and outgoing WebSocket messages, including:
+  - Message broadcasting.
+  - Typing notifications.
+  - Online user status updates.
+
+- **REST API**: Provides endpoints for:
+  - Fetching conversation messages.
+  - Creating new messages.
+  - Managing user authentication.
+
+---
+
+### Frontend:
+
+- **WebSocket Client**:
+  - Connects to the backend WebSocket server.
+  - Sends and receives real-time events (messages, typing indicators).
+
+- **Message List**: Displays messages with a distinction between sent and received messages.
+
+- **Typing Indicator**: Displays the name of the user typing in the chat.
+
+---
 
 
 
