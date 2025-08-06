@@ -230,6 +230,13 @@ redis-cli ping  # Should return PONG
 
 ---
 
+## Additional Feature to Explore
+
+- **Message Deletion**: Enable users to delete messages from conversations.
+
+---
+
+## Screenshots
 
 
 
