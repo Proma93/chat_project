@@ -238,9 +238,9 @@ redis-cli ping  # Should return PONG
 
 ## Screenshots
 
-
-
-
+![Login and Registration](chat_project/screenshots/Login.png)
+![Welcome to ChitChat](chat_project/screenshots/Chitchat.png)
+![Start Conversation](chat_project/screenshots/Chatting.png)
 
 
 
