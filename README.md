@@ -2,8 +2,8 @@
 
 <div align="justify">
 Currently building a powerful real-time chat app from scratch using Django Channels and React.
-The project features a Django backend with WebSocket support, Daphne as the ASGI server, Redis for message handling,
-and a responsive React frontend powered by Vite to deliver seamless live messaging.
+This repository contains all the resources needed to build a robust, real-time chat system using Django for the backend and React for the frontend. 
+The system supports real-time messaging, online status indicators, typing indicators, and user authentication.
 </div>
 
 ---
@@ -12,6 +12,7 @@ and a responsive React frontend powered by Vite to deliver seamless live messagi
 
 - [Key Features](#key-features)
 - [Tech Stack](#tech-stack)
+- [Know About WebSocket](#know-about-websocket)
 
 ---
 
@@ -28,6 +29,14 @@ and a responsive React frontend powered by Vite to deliver seamless live messagi
 - **Role-based Access**: Ensures users can only access conversations they are part of.
 - **Swagger UI for API Documentation**: Added Swagger UI (via drf-yasg) to automatically generate interactive API documentation
 
+### Frontend:
+
+- **Real-Time Updates**: Leverages WebSocket to provide instant message delivery.
+- **User Interface**: Built using React with a clean and responsive design.
+- **Online Status Display**: Shows a list of online users in the conversation.
+- **Typing Indicators**: Displays when another user is typing in the conversation.
+- **Authentication and Authorization**: Uses JWT for managing user sessions.
+- **Error Handling**: Graceful handling of network and server errors.
 ---
 
 ## Tech Stack
@@ -44,5 +53,177 @@ This project leverages the following technologies:
 | 🌐 Real-time Protocol  | [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) | Bi-directional real-time communication                |
 | 🧰 Message Broker      | [Redis](https://redis.io/)                                                    | In-memory data structure store, used as channel layer |
 | 📚 Docs Generator      | [drf-yasg](https://drf-yasg.readthedocs.io/)                                  | Auto-generate Swagger/OpenAPI docs                    |
+| 🟩 Runtime Environment | [Node.js](https://nodejs.org/)                                                | JavaScript runtime for building and running tools     |
 
 ---
+
+## Know About WebSocket
+
+WebSocket provides a persistent connection between the client and server, enabling bi-directional communication without waiting for a server response like HTTP. 
+This is crucial for achieving real-time functionality.
+
+To set up WebSocket in Django:
+
+#### 1. Install the Django Channels library:
+
+```bash
+pip install channels_redis
+pip install daphne
+```
+
+#### 2. Update your settings.py to configure Channels and Redis:
+
+```python
+INSTALLED_APPS = [
+    ...
+    'channels',
+]
+
+ASGI_APPLICATION = "chatsystemproj.asgi.application"
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("127.0.0.1", 6379)],
+        },
+    },
+}
+```
+
+#### 2. Update your settings.py to configure Channels and Redis:
+
+```bash
+sudo apt install redis-server
+sudo service redis-server start
+redis-cli ping  # Should return PONG
+```
+
+---
+
+## Project Structure
+
+### Backend:
+
+- **`chatapp/`**: Contains the core logic for managing conversations and messages.
+- **`chatsystemproj/`**: The Django project folder, including settings and ASGI configuration.
+- **`asgi.py`**: Configures the ASGI application to handle WebSocket connections.
+- **`consumers.py`**: Implements WebSocket consumers for handling real-time communication.
+
+### Frontend:
+
+- **React Components**:
+  - `Conversation.jsx`: Manages real-time chat UI and WebSocket communication.
+  - `Login.jsx` and `Register.jsx`: Handles user authentication.
+  - `ChatList.jsx`: Displays the list of conversations.
+
+- **CSS Styles**: Custom styles for a responsive and user-friendly interface.
+
+---
+
+## Getting Started
+
+### Backend Setup
+
+  1. Create and Activate a Virtual Environment
+
+  <details>
+  <summary><strong>macOS / Linux</strong></summary>
+      
+  ```bash
+  python -m venv venv
+  source venv/bin/activate
+  ```
+  </details> 
+  
+  <details> 
+  <summary><strong>Windows</strong></summary>
+      
+  ```bash
+  python -m venv venv
+  . venv\Scripts\activate
+  ```
+  </details>
+
+  2. Navigate to the Backend Directory: 
+  
+  ```bash
+  cd chat_project
+  ```
+  
+  3. Install Dependencies: 
+  
+  ```bash
+  pip install -r requirements.txt
+  ```
+  
+  4. Run Migrations: 
+  
+  ```bash
+  python manage.py migrate
+  ```
+  
+  #### 5. Run the Development Server:
+  
+  ```bash
+  python manage.py runserver
+  ```
+  
+  6. Run Daphne (for WebSocket support):
+  
+  ```bash
+  daphne -b 0.0.0.0 -p 8000 chatsystemproj.asgi:application
+  ```
+
+### Frontend Setup
+
+  1. Navigate to the Frontend Directory:
+  
+  ```bash
+  cd frontend
+  ```
+  
+  2. Install Dependencies: 
+  
+  ```bash
+  npm install
+  ```
+  
+  3. Start the Development Server: 
+  
+  ```bash
+  npm run dev
+  ```
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
