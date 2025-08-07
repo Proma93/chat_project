@@ -49,7 +49,8 @@ This project leverages the following technologies:
 
 | **Layer**              | **Technology**                                                                | **Description**                                       |
 | ---------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------- |
-| 🐍 Backend Framework   | [Django](https://www.djangoproject.com/)                                      | High-level Python web framework                       |
+| 🐍 Language            | [Python 3.10+](https://www.python.org/)                                       | Core programming language                             |
+| 🌐 Backend Framework   | [Django](https://www.djangoproject.com/)                                      | High-level Python web framework                       |
 | 🔗 API Toolkit         | [Django REST Framework](https://www.django-rest-framework.org/)               | Flexible toolkit to build Web APIs                    |
 | 🔄 Real-time Framework | [Django Channels](https://channels.readthedocs.io/)                           | Adds WebSocket and async support to Django            |
 | ⚙️ ASGI Server         | [Daphne](https://github.com/django/daphne)                                    | ASGI server to run Django Channels                    |
